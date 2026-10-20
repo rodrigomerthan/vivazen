@@ -34,6 +34,7 @@ const MEDICA = {
   '@type': 'Physician',
   '@id': `${SITE}/#dra-fatima`,
   name: 'Dra. Maria de Fátima Della Côrte',
+  alternateName: ["Maria de Fátima Della Côrte Marquez", "Dra. Fátima Della Côrte"],
   url: `${SITE}/dra-fatima-della-corte/`,
   image: SITE + FOTO,
 };
