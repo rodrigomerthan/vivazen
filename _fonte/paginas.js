@@ -1,0 +1,142 @@
+// Conteúdo das páginas por tema. Rodar `node _fonte/gerar-paginas.js` depois de editar.
+// Regras de texto: sem promessa de resultado (Resolução CFM 2.336/2023), sem travessão.
+
+const URG_CRIANCA = 'Febre em bebê com menos de 3 meses, dificuldade para respirar, chiado forte, lábios arroxeados, moleza intensa, convulsão ou sinais de desidratação precisam de atendimento de urgência imediato.';
+
+const FAQ_DOR = ['A acupuntura dói?', 'A maioria dos pacientes sente apenas uma leve sensação de formigamento, calor ou peso no local das agulhas. É sinal de que o ponto foi ativado corretamente. Muitos adormecem durante a sessão.'];
+const FAQ_SESSOES = ['Quantas sessões são necessárias?', 'O número de sessões varia de acordo com a condição e a resposta de cada paciente. Na primeira consulta, a Dra. Fátima avalia o caso e apresenta um plano de tratamento personalizado.'];
+const FAQ_CONVENIO = ['O consultório atende por convênio?', 'Não. O atendimento é particular. Dependendo do plano, o paciente pode pedir reembolso ao convênio com a nota fiscal e o relatório médico.'];
+const FAQ_ONDE = ['Onde fica o consultório?', 'SEP/SUL QD 714/914, Conjunto D, Sala 232, Asa Sul, Brasília/DF, CEP 70390-145. O agendamento é pelo WhatsApp (61) 99590-1212.'];
+
+module.exports = [
+  {
+    slug: 'acupuntura-brasilia',
+    nome: 'Acupuntura médica',
+    title: 'Acupuntura médica na Asa Sul, Brasília | Viva Zen',
+    desc: 'Acupuntura médica com a Dra. Maria de Fátima Della Côrte (CRM-DF 9170, RQE 20577) na Asa Sul, Brasília. Atende adultos e crianças, com avaliação e plano individual.',
+    kicker: 'Brasília · Asa Sul',
+    h1: 'Acupuntura médica <em>na Asa Sul</em>',
+    sobre: 'Acupuntura',
+    resposta: 'A acupuntura médica é feita por médico com especialização reconhecida pelo Conselho Federal de Medicina. Na Viva Zen, a Dra. Maria de Fátima Della Côrte (CRM-DF 9170, RQE 20577) atende adultos e crianças no consultório da Asa Sul, com uma consulta inicial de avaliação e um plano de sessões feito para cada paciente.',
+    secoes: [
+      ['O que é a acupuntura médica', `<p>É uma técnica da medicina tradicional chinesa que estimula pontos específicos do corpo com agulhas finas e descartáveis. No Brasil, a acupuntura é especialidade médica reconhecida pelo CFM desde 1995. Isso quer dizer que a avaliação, o diagnóstico e a indicação do tratamento ficam com o médico.</p>`],
+      ['Quando a acupuntura pode ser indicada', `<ul><li>Dores crônicas e agudas</li><li><a href="/acupuntura-enxaqueca/">Enxaqueca e cefaleia</a></li><li><a href="/acupuntura-ansiedade-insonia/">Ansiedade e insônia</a></li><li>Pós-operatório e reabilitação</li><li>Paralisia facial</li><li>Neuralgia do trigêmeo</li></ul><p>A indicação depende da avaliação de cada caso e pode ser feita junto com outros tratamentos que o paciente já faz.</p>`],
+      ['Como é o atendimento', `<ol class="tp-steps"><li><div><b>Consulta de avaliação.</b> A doutora conversa sobre o histórico de saúde, examina e define se a acupuntura é indicada.</div></li><li><div><b>Plano de sessões.</b> A frequência e o número de sessões são definidos para cada paciente.</div></li><li><div><b>Acompanhamento.</b> O plano é revisto ao longo do tratamento, conforme a resposta de cada pessoa.</div></li></ol>`],
+    ],
+    faq: [FAQ_DOR, FAQ_SESSOES,
+      ['Criança pode fazer acupuntura?', 'A Dra. Fátima também é pediatra. Ela avalia se a acupuntura é indicada para cada criança e adapta a técnica à idade.'],
+      FAQ_CONVENIO, FAQ_ONDE],
+    relacionadas: ['acupuntura-enxaqueca', 'acupuntura-ansiedade-insonia', 'homeopatia-brasilia'],
+  },
+  {
+    slug: 'homeopatia-brasilia',
+    nome: 'Homeopatia',
+    title: 'Médica homeopata na Asa Sul, Brasília | Viva Zen',
+    desc: 'Homeopatia com a Dra. Maria de Fátima Della Côrte (CRM-DF 9170, RQE 7565), Responsável Técnica Distrital de Homeopatia na SES-DF. Adultos e crianças na Asa Sul, Brasília.',
+    kicker: 'Brasília · Asa Sul',
+    h1: 'Médica homeopata <em>na Asa Sul</em>',
+    sobre: 'Homeopatia',
+    resposta: 'A homeopatia é uma especialidade médica reconhecida pelo Conselho Federal de Medicina desde 1980. Na Viva Zen, a Dra. Maria de Fátima Della Côrte (CRM-DF 9170, RQE 7565), Responsável Técnica Distrital de Homeopatia na Secretaria de Saúde do DF, atende adultos e crianças na Asa Sul, em Brasília.',
+    secoes: [
+      ['O que é a homeopatia', `<p>Criada pelo médico alemão Samuel Hahnemann no fim do século XVIII, a homeopatia trata cada paciente de forma individual. A escolha do medicamento leva em conta o conjunto de sintomas físicos e emocionais e a história de cada pessoa, além da doença. Desde 2006, faz parte da Política Nacional de Práticas Integrativas e Complementares do SUS.</p><p>A Dra. Fátima segue a Escola Hahnemanniana, a linha que segue os princípios originais de Hahnemann, com a prescrição baseada no quadro completo do paciente.</p>`],
+      ['Quando a homeopatia pode ser indicada', `<ul><li><a href="/homeopatia-alergia-rinite-infantil/">Alergias e rinites crônicas</a></li><li>Asma e doenças respiratórias</li><li>Doenças autoimunes</li><li>Ansiedade e depressão</li><li>Enxaqueca</li><li>Doenças de pele</li></ul><p>A homeopatia pode ser usada junto com outros tratamentos. Ela não substitui vacinas nem os tratamentos indicados para doenças graves ou situações de urgência.</p>`],
+      ['Como é a consulta homeopática', `<ol class="tp-steps"><li><div><b>Conversa detalhada.</b> A consulta costuma ser mais longa que a convencional. A doutora pergunta sobre sintomas, sono, alimentação, emoções, hábitos e histórico de saúde.</div></li><li><div><b>Avaliação médica.</b> Exame físico e análise de exames, quando houver.</div></li><li><div><b>Prescrição e retorno.</b> O medicamento é escolhido para cada paciente, e os retornos servem para acompanhar a resposta e ajustar o tratamento.</div></li></ol>`],
+    ],
+    faq: [
+      ['A homeopatia é reconhecida pela medicina?', 'Sim. É especialidade médica reconhecida pelo Conselho Federal de Medicina (CFM) desde 1980 e faz parte da Política Nacional de Práticas Integrativas e Complementares do SUS. A indicação é avaliada caso a caso, de forma complementar ao acompanhamento médico.'],
+      ['Posso usar homeopatia junto com outros remédios?', 'Em geral, sim. Informe na consulta todos os medicamentos que você usa e não interrompa nenhum tratamento sem orientação médica.'],
+      ['Criança pode tratar com homeopatia?', 'Sim. A Dra. Fátima é pediatra e homeopata e atende de bebês a adolescentes.'],
+      FAQ_CONVENIO, FAQ_ONDE],
+    relacionadas: ['pediatra-homeopata-brasilia', 'homeopatia-alergia-rinite-infantil', 'acupuntura-brasilia'],
+  },
+  {
+    slug: 'pediatra-homeopata-brasilia',
+    nome: 'Pediatria',
+    title: 'Pediatra homeopata na Asa Sul, Brasília | Viva Zen',
+    desc: 'Pediatra e homeopata com mais de 35 anos de experiência: Dra. Maria de Fátima Della Côrte (RQE 2196 e 7565). Bebês, crianças e adolescentes na Asa Sul, Brasília.',
+    kicker: 'Brasília · Asa Sul',
+    h1: 'Pediatra homeopata <em>na Asa Sul</em>',
+    sobre: 'Pediatria',
+    resposta: 'A Dra. Maria de Fátima Della Côrte é pediatra (RQE 2196) e homeopata (RQE 7565), com mais de 35 anos de experiência. Atende bebês, crianças e adolescentes na Asa Sul, em Brasília, unindo o acompanhamento pediátrico à homeopatia e à acupuntura quando indicadas.',
+    secoes: [
+      ['Pediatria com olhar integral', `<p>Além do acompanhamento de crescimento e desenvolvimento, a doutora olha para a criança como um todo. Sono, alimentação, comportamento, escola e a rotina da família entram na conversa, com escuta atenta aos pais e à própria criança.</p>`],
+      ['Motivos comuns de consulta', `<ul><li>Cólicas e refluxo do bebê</li><li><a href="/homeopatia-alergia-rinite-infantil/">Alergias e infecções recorrentes</a></li><li>Ansiedade infantil e TDAH</li><li>Autismo (TEA)</li><li>Distúrbios do sono</li></ul>`],
+      ['Homeopatia e vacinas', `<p>A homeopatia não substitui as vacinas. O calendário vacinal do Ministério da Saúde faz parte do cuidado com a criança, e a homeopatia, quando indicada, entra como complemento.</p>`],
+      ['Quando procurar urgência', `<p>${URG_CRIANCA}</p>`],
+    ],
+    faq: [
+      ['A partir de que idade a doutora atende?', 'Desde bebê até a adolescência.'],
+      ['Como é o tratamento homeopático em criança?', 'O medicamento é escolhido para cada criança, depois de uma consulta detalhada com os pais ou responsáveis. A doutora acompanha a resposta nos retornos e ajusta quando necessário.'],
+      ['A doutora atende crianças com autismo (TEA)?', 'Sim. A doutora acompanha crianças com TEA com um olhar integrado e pode atuar junto com a equipe que já cuida da criança, como terapeutas, escola e outros especialistas.'],
+      FAQ_CONVENIO, FAQ_ONDE],
+    relacionadas: ['homeopatia-alergia-rinite-infantil', 'homeopatia-brasilia', 'dra-fatima-della-corte'],
+  },
+  {
+    slug: 'acupuntura-enxaqueca',
+    nome: 'Acupuntura para enxaqueca',
+    pai: 'acupuntura-brasilia',
+    title: 'Acupuntura para enxaqueca em Brasília | Viva Zen',
+    desc: 'Acupuntura no tratamento da enxaqueca e da cefaleia com médica acupunturista na Asa Sul, Brasília. Dra. Maria de Fátima Della Côrte, CRM-DF 9170, RQE 20577.',
+    kicker: 'Acupuntura médica',
+    h1: 'Acupuntura para <em>enxaqueca</em>',
+    sobre: 'Enxaqueca',
+    resposta: 'A acupuntura pode ser indicada no tratamento da enxaqueca e de outras dores de cabeça, como parte de um plano que inclui avaliação médica, identificação dos gatilhos e acompanhamento. Na Viva Zen, quem avalia e aplica é a Dra. Maria de Fátima Della Côrte, médica acupunturista (RQE 20577), na Asa Sul, em Brasília.',
+    secoes: [
+      ['Enxaqueca e cefaleia', `<p>Cefaleia é o nome médico para dor de cabeça. A enxaqueca é um tipo de cefaleia que costuma vir em crises, muitas vezes de um lado da cabeça, latejante, com enjoo e incômodo com luz ou barulho. Saber qual é o tipo de dor ajuda a definir o tratamento.</p>`],
+      ['Como a acupuntura entra no tratamento', `<p>A acupuntura é um dos tratamentos estudados para a enxaqueca e costuma ser usada para diminuir a frequência e a intensidade das crises, junto com outras medidas: sono regular, alimentação, atividade física e, quando necessário, medicamentos.</p><p>Na consulta, a doutora avalia o histórico das crises e define se a acupuntura é indicada e com qual frequência.</p>`],
+      ['Leve um diário da dor', `<p>Anotar o dia, a duração, a intensidade e o que aconteceu antes de cada crise ajuda muito na primeira consulta. Vale incluir sono, alimentação, ciclo menstrual e remédios tomados.</p>`],
+      ['Quando procurar urgência', `<p>Dor de cabeça súbita e muito forte, a pior da vida, ou acompanhada de febre, rigidez na nuca, fraqueza, alteração da fala ou da visão, ou depois de uma pancada na cabeça, precisa de atendimento de urgência.</p>`],
+    ],
+    faq: [
+      ['A acupuntura substitui o remédio para enxaqueca?', 'Não necessariamente. Ela costuma entrar junto com o tratamento que você já faz. Não interrompa nenhum medicamento sem orientação médica.'],
+      FAQ_SESSOES, FAQ_DOR,
+      ['Criança com dor de cabeça pode fazer acupuntura?', 'A Dra. Fátima é pediatra e avalia caso a caso se a acupuntura é indicada, adaptando a técnica à idade.'],
+      FAQ_ONDE],
+    relacionadas: ['acupuntura-brasilia', 'acupuntura-ansiedade-insonia', 'homeopatia-brasilia'],
+  },
+  {
+    slug: 'acupuntura-ansiedade-insonia',
+    nome: 'Acupuntura para ansiedade e insônia',
+    pai: 'acupuntura-brasilia',
+    title: 'Acupuntura para ansiedade e insônia em Brasília | Viva Zen',
+    desc: 'Acupuntura como tratamento complementar para ansiedade e insônia, com médica acupunturista na Asa Sul, Brasília. Dra. Maria de Fátima Della Côrte, CRM-DF 9170.',
+    kicker: 'Acupuntura médica',
+    h1: 'Acupuntura para <em>ansiedade e insônia</em>',
+    sobre: 'Ansiedade e insônia',
+    resposta: 'A acupuntura pode ser usada como tratamento complementar para ansiedade e insônia, junto com o acompanhamento médico e psicológico que a pessoa já faça. Na Viva Zen, a avaliação e as sessões são feitas pela Dra. Maria de Fátima Della Côrte, médica acupunturista (RQE 20577), na Asa Sul, em Brasília.',
+    secoes: [
+      ['Ansiedade, sono e corpo', `<p>Ansiedade e insônia costumam andar juntas: a preocupação atrapalha o sono, e dormir mal deixa o dia mais tenso. Muitas vezes aparecem também no corpo, com tensão muscular, dor de cabeça, palpitação ou alterações no intestino.</p>`],
+      ['Como a acupuntura entra no cuidado', `<p>Na consulta, a doutora entende a rotina, o sono, os sintomas e os tratamentos em andamento. Se a acupuntura for indicada, ela entra como parte do cuidado, sem substituir psicoterapia nem medicamentos prescritos.</p>`],
+      ['Quando buscar ajuda imediata', `<p>Em crise intensa ou com pensamentos de se machucar ou de tirar a própria vida, procure um pronto-socorro ou ligue para o CVV no 188. A ligação é gratuita e o atendimento funciona 24 horas.</p>`],
+    ],
+    faq: [
+      ['A acupuntura substitui o remédio para ansiedade?', 'Não. Ela pode ser feita junto com o tratamento que você já faz. Qualquer mudança na medicação deve ser combinada com o médico que a prescreveu.'],
+      ['Posso fazer acupuntura se tomo remédio para dormir?', 'Em geral, sim. Informe na consulta os medicamentos que você usa e não suspenda nenhum por conta própria.'],
+      FAQ_SESSOES,
+      ['Adolescente com ansiedade pode fazer acupuntura?', 'A Dra. Fátima é pediatra e avalia caso a caso se a acupuntura é indicada para crianças e adolescentes.'],
+      FAQ_ONDE],
+    relacionadas: ['acupuntura-brasilia', 'acupuntura-enxaqueca', 'homeopatia-brasilia'],
+  },
+  {
+    slug: 'homeopatia-alergia-rinite-infantil',
+    nome: 'Homeopatia para rinite e alergia infantil',
+    pai: 'homeopatia-brasilia',
+    title: 'Homeopatia para rinite e alergia infantil em Brasília | Viva Zen',
+    desc: 'Pediatra homeopata para crianças com rinite, alergias e infecções respiratórias de repetição na Asa Sul, Brasília. Dra. Maria de Fátima Della Côrte, CRM-DF 9170.',
+    kicker: 'Homeopatia · Pediatria',
+    h1: 'Homeopatia para <em>rinite e alergia</em> na infância',
+    sobre: 'Rinite alérgica',
+    resposta: 'A homeopatia pode ser usada no acompanhamento de crianças com rinite, alergias e infecções respiratórias de repetição, de forma individual e complementar ao tratamento pediátrico. Na Viva Zen, a Dra. Maria de Fátima Della Côrte é pediatra (RQE 2196) e homeopata (RQE 7565) e atende na Asa Sul, em Brasília.',
+    secoes: [
+      ['Rinite e alergia na criança', `<p>Espirros, nariz entupido ou escorrendo, coceira no nariz e nos olhos e respiração pela boca são sinais comuns de rinite alérgica. Muitas vezes vêm junto com outras alergias, como dermatite, ou com crises de chiado.</p>`],
+      ['Como a homeopatia entra no tratamento', `<p>Na consulta, a doutora avalia a criança como um todo: crises, ambiente de casa, sono, alimentação e histórico da família. O medicamento homeopático é escolhido para cada criança, e o acompanhamento é feito nos retornos. Cuidados com o ambiente, como reduzir poeira e mofo, continuam fazendo parte do tratamento.</p><p>A homeopatia não substitui vacinas nem os medicamentos indicados para crises de asma.</p>`],
+      ['Quando procurar urgência', `<p>${URG_CRIANCA}</p>`],
+    ],
+    faq: [
+      ['A partir de que idade a doutora atende?', 'Desde bebê até a adolescência.'],
+      ['Posso usar homeopatia junto com o remédio da rinite ou a bombinha?', 'Em geral, sim. Leve à consulta a lista de medicamentos da criança e não suspenda nenhum sem orientação médica.'],
+      ['Quanto tempo dura o tratamento?', 'Varia de criança para criança. A doutora acompanha a resposta nos retornos e ajusta o tratamento quando necessário.'],
+      FAQ_CONVENIO, FAQ_ONDE],
+    relacionadas: ['pediatra-homeopata-brasilia', 'homeopatia-brasilia', 'dra-fatima-della-corte'],
+  },
+];

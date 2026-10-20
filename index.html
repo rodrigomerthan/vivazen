@@ -59,6 +59,9 @@
         }
       ],
       "isAcceptedPaymentMethod": "Atendimento particular (não aceita convênios)",
+      "sameAs": [
+        "https://www.google.com/search?kgmid=/g/11ltxfcdwn"
+      ],
       "employee": {
         "@id": "https://clinicavivazen.com.br/#dra-fatima"
       }
@@ -68,7 +71,7 @@
       "@id": "https://clinicavivazen.com.br/#dra-fatima",
       "name": "Dra. Maria de Fátima Della Côrte",
       "image": "https://clinicavivazen.com.br/img/dra-fatima-della-corte.jpg",
-      "url": "https://clinicavivazen.com.br/#sobre",
+      "url": "https://clinicavivazen.com.br/dra-fatima-della-corte/",
       "telephone": "+55-61-99590-1212",
       "address": {
         "@type": "PostalAddress",
@@ -289,6 +292,8 @@ section { padding: 100px 5%; }
 .service-card ul { list-style: none; margin-top: 16px; display: flex; flex-direction: column; gap: 6px; }
 .service-card ul li { font-size: 0.78rem; color: var(--light); display: flex; align-items: center; gap: 8px; }
 .service-card ul li::before { content: '–'; color: var(--sage); }
+.service-more { display: inline-block; margin-top: 20px; font-size: 0.78rem; letter-spacing: 0.08em; color: var(--sage); text-decoration: underline; text-underline-offset: 4px; }
+.service-more:hover { color: var(--charcoal); }
 
 .benefits { background: var(--sage); color: white; display: flex; flex-direction: column; align-items: center; text-align: center; }
 .benefits-left { max-width: 740px; }
@@ -465,6 +470,7 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
         <li>Paralisia facial</li>
         <li>Neuralgia do trigêmeo</li>
       </ul>
+      <a href="/acupuntura-brasilia/" class="service-more">Saiba mais sobre acupuntura</a>
     </div>
     <div class="service-card reveal">
       <h3>Pediatria</h3>
@@ -476,6 +482,7 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
         <li>Autismo (TEA)</li>
         <li>Distúrbios do sono</li>
       </ul>
+      <a href="/pediatra-homeopata-brasilia/" class="service-more">Saiba mais sobre pediatria</a>
     </div>
     <div class="service-card reveal">
       <h3>Homeopatia</h3>
@@ -488,6 +495,7 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
         <li>Enxaqueca</li>
         <li>Doenças de pele</li>
       </ul>
+      <a href="/homeopatia-brasilia/" class="service-more">Saiba mais sobre homeopatia</a>
     </div>
   </div>
 </section>
@@ -624,9 +632,9 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
     <div class="footer-col">
       <h5>Especialidades</h5>
       <ul>
-        <li><a href="#servicos" onclick="goTo('servicos');return false;">Acupuntura Médica</a></li>
-        <li><a href="#servicos" onclick="goTo('servicos');return false;">Homeopatia</a></li>
-        <li><a href="#servicos" onclick="goTo('servicos');return false;">Pediatria</a></li>
+        <li><a href="/acupuntura-brasilia/">Acupuntura Médica</a></li>
+        <li><a href="/homeopatia-brasilia/">Homeopatia</a></li>
+        <li><a href="/pediatra-homeopata-brasilia/">Pediatria</a></li>
       </ul>
     </div>
     <div class="footer-col">
