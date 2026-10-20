@@ -84,8 +84,9 @@ nav a:hover { color: var(--sage); }
 
 .hero-kicker { display: inline-flex; align-items: center; gap: 10px; font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--sage); margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; }
 
-.hero h1 { font-size: clamp(2.8rem, 5vw, 4.8rem); font-weight: 300; color: #1a1a1a; line-height: 1.1; opacity: 0; animation: fadeUp 0.9s ease 0.4s forwards; }
-.hero h1 em { font-style: italic; color: var(--sage); }
+.hero h1.hero-kicker { font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.5; }
+.hero .hero-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(2.8rem, 5vw, 4.8rem); font-weight: 300; color: #1a1a1a; line-height: 1.1; opacity: 0; animation: fadeUp 0.9s ease 0.4s forwards; }
+.hero .hero-title em { font-style: italic; color: var(--sage); }
 
 .hero-sub { margin-top: 1.8rem; font-size: 1.05rem; line-height: 1.75; color: var(--mid); max-width: 620px; font-weight: 300; opacity: 0; animation: fadeUp 0.9s ease 0.6s forwards; }
 
@@ -145,6 +146,7 @@ section { padding: 100px 5%; }
 .benefits-left h2 em { font-style: italic; color: rgba(255,255,255,0.75); }
 .benefits-left p { margin-top: 1.5rem; font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.8); font-weight: 300; }
 .benefits-left .btn-primary { margin-top: 2.5rem; background: white; color: var(--sage); }
+.benefits-more { display: block; margin-top: 1.5rem; font-size: 0.85rem; letter-spacing: 0.06em; color: white; text-underline-offset: 4px; }
 .benefits-left .btn-primary:hover { background: var(--cream); }
 
 .faq-inner { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start; }
@@ -317,7 +319,7 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
           {
             "@type": "ListItem",
             "position": 3,
-            "name": "Pediatria",
+            "name": "Pediatra homeopata",
             "item": "https://clinicavivazen.com.br/pediatra-homeopata-brasilia/"
           }
         ]
@@ -409,7 +411,7 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
 </header>
 
 <main class="tp">
-  <div class="tp-crumbs" role="navigation" aria-label="Você está em"><a href="/">Início</a> <span aria-hidden="true">›</span> <a href="/#servicos">Especialidades</a> <span aria-hidden="true">›</span> <span aria-current="page">Pediatria</span></div>
+  <div class="tp-crumbs" role="navigation" aria-label="Você está em"><a href="/">Início</a> <span aria-hidden="true">›</span> <a href="/#servicos">Especialidades</a> <span aria-hidden="true">›</span> <span aria-current="page">Pediatra homeopata</span></div>
 
   <section class="tp-hero">
     <span class="tp-kicker">Brasília · Asa Sul</span>
@@ -426,7 +428,7 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
 
   <section class="tp-secao">
     <h2>Motivos comuns de consulta</h2>
-    <ul><li>Cólicas e refluxo do bebê</li><li><a href="/homeopatia-alergia-rinite-infantil/">Alergias e infecções recorrentes</a></li><li>Ansiedade infantil e TDAH</li><li>Autismo (TEA)</li><li>Distúrbios do sono</li></ul>
+    <ul><li><a href="/colica-refluxo-bebe/">Cólicas e refluxo do bebê</a></li><li><a href="/homeopatia-alergia-rinite-infantil/">Alergias e infecções recorrentes</a></li><li>Ansiedade infantil e TDAH</li><li><a href="/pediatra-autismo-tea-brasilia/">Autismo (TEA)</a></li><li>Distúrbios do sono</li></ul>
   </section>
 
   <section class="tp-secao">
@@ -477,7 +479,7 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
       <ul>
         <li><a href="/acupuntura-brasilia/">Acupuntura Médica</a></li>
         <li><a href="/homeopatia-brasilia/">Homeopatia</a></li>
-        <li><a href="/pediatra-homeopata-brasilia/">Pediatria</a></li>
+        <li><a href="/pediatra-asa-sul/">Pediatria</a></li>
       </ul>
     </div>
     <div class="footer-col">

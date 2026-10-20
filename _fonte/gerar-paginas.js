@@ -148,12 +148,13 @@ const urlDe = (slug) => `${SITE}/${slug}/`;
 function migalhas(p) {
   const itens = [['Início', '/']];
   if (p.pai) itens.push([porSlug[p.pai].nome, `/${p.pai}/`]);
+  else if (p.secao) itens.push(p.secao);
   else if (p.slug !== 'dra-fatima-della-corte') itens.push(['Especialidades', '/#servicos']);
   itens.push([p.nome]);
   const html = itens.map(([n, h], i) => (h ? `<a href="${h}">${n}</a>` : `<span aria-current="page">${n}</span>`) + (i < itens.length - 1 ? ' <span aria-hidden="true">›</span>' : '')).join(' ');
   const schema = {
     '@type': 'BreadcrumbList',
-    itemListElement: itens.map(([n, h], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: h ? SITE + h.replace('/#servicos', '/') : urlDe(p.slug) })),
+    itemListElement: itens.map(([n, h], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: h ? SITE + h.replace(/#\w+$/, '') : urlDe(p.slug) })),
   };
   return { html: `<div class="tp-crumbs" role="navigation" aria-label="Você está em">${html}</div>`, schema };
 }
@@ -211,7 +212,7 @@ function paginaTema(p) {
     ],
   };
   // especialidade não é condição: troca o tipo do "about"
-  if (!p.pai) schema['@graph'][0].about = { '@type': 'MedicalSpecialty', name: p.sobre };
+  if (!p.pai) schema['@graph'][0].about = { '@type': p.aboutTipo || 'MedicalSpecialty', name: p.sobre };
 
   return cabeca(p, url, schema) + `
 <main class="tp">
@@ -330,7 +331,7 @@ for (const p of paginas) gerar(p.slug, paginaTema(p));
 gerar('dra-fatima-della-corte', paginaMedica());
 
 // sitemap
-const urls = [`${SITE}/`, ...paginas.slice(0, 3).map((p) => urlDe(p.slug)), urlDe('dra-fatima-della-corte'), ...paginas.slice(3).map((p) => urlDe(p.slug))];
+const urls = [`${SITE}/`, ...paginas.map((p) => urlDe(p.slug)), urlDe('dra-fatima-della-corte')];
 fs.writeFileSync(path.join(RAIZ, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((u) => `  <url>\n    <loc>${u}</loc>\n    <lastmod>${HOJE}</lastmod>\n  </url>`).join('\n')}
@@ -351,13 +352,13 @@ fs.writeFileSync(path.join(RAIZ, 'llms.txt'), `# Viva Zen Centro Médico Integra
 
 - [Acupuntura médica](${urlDe('acupuntura-brasilia')}): adultos e crianças; dores, enxaqueca, ansiedade, insônia, pós-operatório, paralisia facial, neuralgia do trigêmeo
 - [Homeopatia](${urlDe('homeopatia-brasilia')}): Escola Hahnemanniana; alergias, rinites, asma, doenças de pele, enxaqueca
-- [Pediatria e pediatra homeopata](${urlDe('pediatra-homeopata-brasilia')}): bebês a adolescentes; cólicas, refluxo, alergias, infecções recorrentes, sono, TDAH, autismo (TEA)
+- [Pediatria](${urlDe('pediatra-asa-sul')}): bebês a adolescentes; crescimento, desenvolvimento, alimentação, sono, vacinas, cólicas, refluxo, alergias, infecções recorrentes, TDAH, autismo (TEA)
+- [Medicina integrativa](${urlDe('medicina-integrativa-brasilia')}): abordagem que une pediatria, acupuntura e homeopatia à medicina convencional; pós-graduação da doutora, não é especialidade do CFM
+- [Pediatra homeopata](${urlDe('pediatra-homeopata-brasilia')}): pediatria com homeopatia e acupuntura como complemento
 
 ## Temas
 
-- [Acupuntura para enxaqueca](${urlDe('acupuntura-enxaqueca')})
-- [Acupuntura para ansiedade e insônia](${urlDe('acupuntura-ansiedade-insonia')})
-- [Homeopatia para rinite e alergia infantil](${urlDe('homeopatia-alergia-rinite-infantil')})
+${paginas.filter((p) => p.pai).map((p) => `- [${p.nome}](${urlDe(p.slug)})`).join('\n')}
 
 ## Sobre
 
