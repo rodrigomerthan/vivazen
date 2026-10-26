@@ -137,6 +137,8 @@ section { padding: 100px 5%; }
 .service-card ul { list-style: none; margin-top: 16px; display: flex; flex-direction: column; gap: 6px; }
 .service-card ul li { font-size: 0.78rem; color: var(--light); display: flex; align-items: center; gap: 8px; }
 .service-card ul li::before { content: '–'; color: var(--sage); }
+.service-card ul li a { color: inherit; text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 3px; }
+.service-card ul li a:hover { color: var(--sage); }
 .service-more { display: inline-block; margin-top: 20px; font-size: 0.78rem; letter-spacing: 0.08em; color: var(--sage); text-decoration: underline; text-underline-offset: 4px; }
 .service-more:hover { color: var(--charcoal); }
 
@@ -292,7 +294,7 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
       "author": {
         "@id": "https://clinicavivazen.com.br/#dra-fatima"
       },
-      "lastReviewed": "2026-10-20",
+      "lastReviewed": "2026-10-26",
       "isPartOf": {
         "@type": "WebSite",
         "url": "https://clinicavivazen.com.br/",
@@ -328,6 +330,14 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
     {
       "@type": "FAQPage",
       "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Acupunturista é médico?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Na Viva Zen, sim. A acupuntura é feita pela Dra. Maria de Fátima Della Côrte, médica (CRM-DF 9170) com título de especialista em Acupuntura (RQE 20577). Antes de iniciar o tratamento, ela faz uma consulta de avaliação."
+          }
+        },
         {
           "@type": "Question",
           "name": "A acupuntura dói?",
@@ -438,6 +448,7 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
 
   <section class="tp-faq">
     <h2>Perguntas frequentes</h2>
+    <details><summary>Acupunturista é médico?</summary><p>Na Viva Zen, sim. A acupuntura é feita pela Dra. Maria de Fátima Della Côrte, médica (CRM-DF 9170) com título de especialista em Acupuntura (RQE 20577). Antes de iniciar o tratamento, ela faz uma consulta de avaliação.</p></details>
     <details><summary>A acupuntura dói?</summary><p>A maioria dos pacientes sente apenas uma leve sensação de formigamento, calor ou peso no local das agulhas. É sinal de que o ponto foi ativado corretamente. Muitos adormecem durante a sessão.</p></details>
     <details><summary>Quantas sessões são necessárias?</summary><p>O número de sessões varia de acordo com a condição e a resposta de cada paciente. Na primeira consulta, a Dra. Fátima avalia o caso e apresenta um plano de tratamento personalizado.</p></details>
     <details><summary>Criança pode fazer acupuntura?</summary><p>A Dra. Fátima também é pediatra. Ela avalia se a acupuntura é indicada para cada criança e adapta a técnica à idade.</p></details>

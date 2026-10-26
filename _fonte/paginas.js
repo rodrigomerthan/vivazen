@@ -6,6 +6,7 @@ const URG_CRIANCA = 'Febre em bebê com menos de 3 meses, dificuldade para respi
 const FAQ_DOR = ['A acupuntura dói?', 'A maioria dos pacientes sente apenas uma leve sensação de formigamento, calor ou peso no local das agulhas. É sinal de que o ponto foi ativado corretamente. Muitos adormecem durante a sessão.'];
 const FAQ_SESSOES = ['Quantas sessões são necessárias?', 'O número de sessões varia de acordo com a condição e a resposta de cada paciente. Na primeira consulta, a Dra. Fátima avalia o caso e apresenta um plano de tratamento personalizado.'];
 const FAQ_CONVENIO = ['O consultório atende por convênio?', 'Não. O atendimento é particular. Dependendo do plano, o paciente pode pedir reembolso ao convênio com a nota fiscal e o relatório médico.'];
+const FAQ_MEDICO = ['Acupunturista é médico?', 'Na Viva Zen, sim. A acupuntura é feita pela Dra. Maria de Fátima Della Côrte, médica (CRM-DF 9170) com título de especialista em Acupuntura (RQE 20577). Antes de iniciar o tratamento, ela faz uma consulta de avaliação.'];
 const FAQ_ONDE = ['Onde fica o consultório?', 'SEP/SUL QD 714/914, Conjunto D, Sala 232, Asa Sul, Brasília/DF, CEP 70390-145. O agendamento é pelo WhatsApp (61) 99590-1212.'];
 
 module.exports = [
@@ -23,7 +24,7 @@ module.exports = [
       ['Quando a acupuntura pode ser indicada', `<ul><li><a href="/acupuntura-dor-cronica/">Dores crônicas e agudas</a></li><li><a href="/acupuntura-enxaqueca/">Enxaqueca e cefaleia</a></li><li><a href="/acupuntura-ansiedade-insonia/">Ansiedade e insônia</a></li><li>Pós-operatório e reabilitação</li><li>Paralisia facial</li><li>Neuralgia do trigêmeo</li></ul><p>A indicação depende da avaliação de cada caso e pode ser feita junto com outros tratamentos que o paciente já faz.</p>`],
       ['Como é o atendimento', `<ol class="tp-steps"><li><div><b>Consulta de avaliação.</b> A doutora conversa sobre o histórico de saúde, examina e define se a acupuntura é indicada.</div></li><li><div><b>Plano de sessões.</b> A frequência e o número de sessões são definidos para cada paciente.</div></li><li><div><b>Acompanhamento.</b> O plano é revisto ao longo do tratamento, conforme a resposta de cada pessoa.</div></li></ol>`],
     ],
-    faq: [FAQ_DOR, FAQ_SESSOES,
+    faq: [FAQ_MEDICO, FAQ_DOR, FAQ_SESSOES,
       ['Criança pode fazer acupuntura?', 'A Dra. Fátima também é pediatra. Ela avalia se a acupuntura é indicada para cada criança e adapta a técnica à idade.'],
       FAQ_CONVENIO, FAQ_ONDE],
     relacionadas: ['acupuntura-dor-cronica', 'acupuntura-enxaqueca', 'acupuntura-ansiedade-insonia'],

@@ -127,6 +127,14 @@
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "Acupunturista é médico?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Na Viva Zen, sim. A acupuntura é feita pela Dra. Maria de Fátima Della Côrte, médica (CRM-DF 9170) com título de especialista em Acupuntura (RQE 20577). Antes de iniciar o tratamento, ela faz uma consulta de avaliação."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "A acupuntura é dolorosa?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -163,6 +171,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "O número de sessões varia de acordo com a condição e a resposta de cada paciente. Na primeira consulta, a Dra. Fátima avalia seu caso e apresenta um plano de tratamento personalizado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Onde fica o consultório?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SEP/SUL QD 714/914, Conjunto D, Sala 232, Asa Sul, Brasília/DF, CEP 70390-145. O agendamento é pelo WhatsApp (61) 99590-1212."
           }
         }
       ]
@@ -291,6 +307,8 @@ section { padding: 100px 5%; }
 .service-card ul { list-style: none; margin-top: 16px; display: flex; flex-direction: column; gap: 6px; }
 .service-card ul li { font-size: 0.78rem; color: var(--light); display: flex; align-items: center; gap: 8px; }
 .service-card ul li::before { content: '–'; color: var(--sage); }
+.service-card ul li a { color: inherit; text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 3px; }
+.service-card ul li a:hover { color: var(--sage); }
 .service-more { display: inline-block; margin-top: 20px; font-size: 0.78rem; letter-spacing: 0.08em; color: var(--sage); text-decoration: underline; text-underline-offset: 4px; }
 .service-more:hover { color: var(--charcoal); }
 
@@ -463,9 +481,9 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
       <h3>Acupuntura<br>Médica</h3>
       <p>Técnica milenar da Medicina Chinesa que age sobre pontos específicos do corpo para restaurar o equilíbrio dinâmico, aliviar dores e promover saúde de forma natural.</p>
       <ul>
-        <li>Dores crônicas e agudas</li>
-        <li>Ansiedade e insônia</li>
-        <li>Enxaqueca e cefaleia</li>
+        <li><a href="/acupuntura-dor-cronica/">Dores crônicas e agudas</a></li>
+        <li><a href="/acupuntura-ansiedade-insonia/">Ansiedade e insônia</a></li>
+        <li><a href="/acupuntura-enxaqueca/">Enxaqueca e cefaleia</a></li>
         <li>Pós-operatório e reabilitação</li>
         <li>Paralisia facial</li>
         <li>Neuralgia do trigêmeo</li>
@@ -476,10 +494,10 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
       <h3>Pediatria</h3>
       <p>Atendimento pediátrico com escuta aprofundada e olhar integral. Cada criança é tratada na sua singularidade, desde bebê até a adolescência.</p>
       <ul>
-        <li>Cólicas e refluxo do bebê</li>
-        <li>Alergias e infecções recorrentes</li>
+        <li><a href="/colica-refluxo-bebe/">Cólicas e refluxo do bebê</a></li>
+        <li><a href="/homeopatia-alergia-rinite-infantil/">Alergias e infecções recorrentes</a></li>
         <li>Ansiedade infantil e TDAH</li>
-        <li>Autismo (TEA)</li>
+        <li><a href="/pediatra-autismo-tea-brasilia/">Autismo (TEA)</a></li>
         <li>Distúrbios do sono</li>
       </ul>
       <a href="/pediatra-asa-sul/" class="service-more">Saiba mais sobre pediatria</a>
@@ -488,7 +506,8 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
       <h3>Homeopatia</h3>
       <p>Tratamento individualizado, que considera o paciente como um todo e busca estimular a capacidade de reequilíbrio do próprio organismo. Indicado para condições agudas e crônicas em todas as idades.</p>
       <ul>
-        <li>Alergias e rinites crônicas</li>
+        <li><a href="/pediatra-homeopata-brasilia/">Homeopatia infantil</a></li>
+        <li><a href="/homeopatia-alergia-rinite-infantil/">Alergias e rinites crônicas</a></li>
         <li>Asma e doenças respiratórias</li>
         <li>Doenças autoimunes</li>
         <li>Ansiedade e depressão</li>
@@ -522,6 +541,10 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
     </div>
     <div class="faq-list reveal">
       <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Acupunturista é médico?<span class="faq-toggle">+</span></button>
+        <div class="faq-a">Na Viva Zen, sim. A acupuntura é feita pela Dra. Maria de Fátima Della Côrte, médica (CRM-DF 9170) com título de especialista em Acupuntura (RQE 20577). Antes de iniciar o tratamento, ela faz uma consulta de avaliação.</div>
+      </div>
+      <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">A acupuntura é dolorosa?<span class="faq-toggle">+</span></button>
         <div class="faq-a">A maioria dos pacientes sente apenas uma leve sensação de formigamento, calor ou peso no local de aplicação das agulhas. É sinal de que o ponto foi ativado corretamente. Muitos adormecem durante a sessão.</div>
       </div>
@@ -540,6 +563,10 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Quantas sessões de acupuntura são necessárias?<span class="faq-toggle">+</span></button>
         <div class="faq-a">O número de sessões varia de acordo com a condição e a resposta de cada paciente. Na primeira consulta, a Dra. Fátima avalia seu caso e apresenta um plano de tratamento personalizado.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Onde fica o consultório?<span class="faq-toggle">+</span></button>
+        <div class="faq-a">SEP/SUL QD 714/914, Conjunto D, Sala 232, Asa Sul, Brasília/DF, CEP 70390-145. O agendamento é pelo WhatsApp (61) 99590-1212.</div>
       </div>
     </div>
   </div>
