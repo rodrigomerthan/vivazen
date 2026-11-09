@@ -87,6 +87,23 @@ nav a:hover { color: var(--sage); }
 .hero h1.hero-kicker { font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.5; }
 .hero .hero-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(2.8rem, 5vw, 4.8rem); font-weight: 300; color: #1a1a1a; line-height: 1.1; opacity: 0; animation: fadeUp 0.9s ease 0.4s forwards; }
 .hero .hero-title em { font-style: italic; color: var(--sage); }
+.hero h1.hero-title { font-size: clamp(2.3rem, 4.6vw, 4.2rem); }
+.hero-medica { display: flex; align-items: center; gap: 14px; margin-top: 1.8rem; font-size: 0.92rem; line-height: 1.5; color: var(--mid); opacity: 0; animation: fadeUp 0.9s ease 0.5s forwards; }
+.hero-medica img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; object-position: center top; flex-shrink: 0; }
+.hero-medica strong { display: block; font-weight: 500; color: var(--charcoal); font-size: 1rem; }
+.hero-foto { display: none; }
+@media (min-width: 1025px) {
+  .hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); }
+  .hero-left { padding: 6% 6% 6% 10%; }
+  .hero-foto { display: block; position: relative; overflow: hidden; }
+  .hero-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .hero-medica img { display: none; }
+}
+.contact-mapa { margin-top: 2rem; border: 1px solid var(--border); border-radius: 2px; overflow: hidden; }
+.contact-mapa iframe { display: block; width: 100%; height: 280px; border: 0; }
+.contact-rota { display: inline-block; margin-top: 12px; font-size: 0.85rem; color: var(--sage); text-underline-offset: 4px; }
+.form-disclaimer a { color: inherit; }
+.footer-bottom a { color: inherit; }
 
 .hero-sub { margin-top: 1.8rem; font-size: 1.05rem; line-height: 1.75; color: var(--mid); max-width: 620px; font-weight: 300; opacity: 0; animation: fadeUp 0.9s ease 0.6s forwards; }
 
@@ -294,7 +311,7 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
       "author": {
         "@id": "https://clinicavivazen.com.br/#dra-fatima"
       },
-      "lastReviewed": "2026-10-26",
+      "lastReviewed": "2026-11-09",
       "isPartOf": {
         "@type": "WebSite",
         "url": "https://clinicavivazen.com.br/",
@@ -351,7 +368,7 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
           "name": "A acupuntura dói?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A maioria dos pacientes sente apenas uma leve sensação de formigamento, calor ou peso no local das agulhas. É sinal de que o ponto foi ativado corretamente. Muitos adormecem durante a sessão."
+            "text": "A maioria dos pacientes sente apenas uma leve sensação de formigamento, calor ou peso no local das agulhas. Muitos relaxam durante a sessão."
           }
         },
         {
@@ -447,7 +464,7 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
     <h2>Perguntas frequentes</h2>
     <details><summary>A acupuntura substitui o remédio para enxaqueca?</summary><p>Não necessariamente. Ela costuma entrar junto com o tratamento que você já faz. Não interrompa nenhum medicamento sem orientação médica.</p></details>
     <details><summary>Quantas sessões são necessárias?</summary><p>O número de sessões varia de acordo com a condição e a resposta de cada paciente. Na primeira consulta, a Dra. Fátima avalia o caso e apresenta um plano de tratamento personalizado.</p></details>
-    <details><summary>A acupuntura dói?</summary><p>A maioria dos pacientes sente apenas uma leve sensação de formigamento, calor ou peso no local das agulhas. É sinal de que o ponto foi ativado corretamente. Muitos adormecem durante a sessão.</p></details>
+    <details><summary>A acupuntura dói?</summary><p>A maioria dos pacientes sente apenas uma leve sensação de formigamento, calor ou peso no local das agulhas. Muitos relaxam durante a sessão.</p></details>
     <details><summary>Criança com dor de cabeça pode fazer acupuntura?</summary><p>A Dra. Fátima é pediatra e avalia caso a caso se a acupuntura é indicada, adaptando a técnica à idade.</p></details>
     <details><summary>Onde fica o consultório?</summary><p>SEP/SUL QD 714/914, Conjunto D, Sala 232, Asa Sul, Brasília/DF, CEP 70390-145. O agendamento é pelo WhatsApp (61) 99590-1212.</p></details>
   </section>
@@ -500,11 +517,12 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
         <li><span class="js-email"></span></li>
         <li><span>SEP/SUL QD 714/914, Sala 232</span></li>
         <li><span>Asa Sul · Brasília/DF</span></li>
+        <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=SEP%2FSUL%20714%2F914%20Conjunto%20D%2C%20Asa%20Sul%2C%20Bras%C3%ADlia%20DF%2070390-145" target="_blank" rel="noopener">Como chegar</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Viva Zen Centro Médico Integrado · Dra. Mª de Fátima Della Côrte · CRMDF 9170</span>
+    <span>© 2026 Viva Zen Centro Médico Integrado · Dra. Maria de Fátima Della Côrte · CRM-DF 9170 · <a href="/privacidade/">Política de privacidade (LGPD)</a></span>
     <span>Brasília/DF · <span class="js-email"></span></span>
   </div>
 </footer>

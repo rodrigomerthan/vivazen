@@ -322,6 +322,44 @@ function paginaMedica() {
 ` + corpoFinal();
 }
 
+function paginaPrivacidade() {
+  const p = {
+    title: 'Política de privacidade | Viva Zen Centro Médico Integrado',
+    desc: 'Como a Viva Zen Centro Médico Integrado trata os dados pessoais de quem usa o site e agenda consultas, conforme a Lei Geral de Proteção de Dados (LGPD).',
+  };
+  const url = urlDe('privacidade');
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [{ '@type': 'WebPage', '@id': url, url, name: p.title, description: p.desc, inLanguage: 'pt-BR', publisher: { '@id': CLINICA['@id'] } }, CLINICA],
+  };
+  const sec = (h, html) => `<section class="tp-secao">
+    <h2>${h}</h2>
+    ${html}
+  </section>`;
+  return cabeca(p, url, schema) + `
+<main class="tp">
+  <div class="tp-crumbs" role="navigation" aria-label="Você está em"><a href="/">Início</a> <span aria-hidden="true">›</span> <span aria-current="page">Política de privacidade</span></div>
+
+  <section class="tp-hero">
+    <h1>Política de <em>privacidade</em></h1>
+    <p class="tp-resposta">Esta página explica como a Viva Zen Centro Médico Integrado trata os dados pessoais de quem visita o site e agenda consultas, de acordo com a Lei Geral de Proteção de Dados (Lei 13.709/2018).</p>
+  </section>
+
+  ${sec('Quem é responsável pelos dados', '<p>Viva Zen Centro Médico Integrado, sob responsabilidade da Dra. Maria de Fátima Della Côrte (CRM-DF 9170), SEP/SUL QD 714/914, Conjunto D, Sala 232, Asa Sul, Brasília/DF.</p>')}
+
+  ${sec('Quais dados coletamos e para quê', '<p>O site não tem cadastro nem guarda informações. Quando você preenche o formulário de agendamento, os dados (nome, telefone, e-mail, especialidade e motivo da consulta) não ficam no site: eles montam uma mensagem que abre no seu WhatsApp, e só são enviados se você confirmar o envio.</p><p>As informações recebidas pelo WhatsApp ou por e-mail são usadas apenas para agendar e organizar o seu atendimento.</p>')}
+
+  ${sec('Dados de saúde e sigilo médico', '<p>Informações sobre a sua saúde são dados sensíveis. Elas ficam protegidas pelo sigilo médico e são usadas só no seu atendimento. Não vendemos nem compartilhamos esses dados com terceiros, exceto quando a lei exigir ou quando você pedir (por exemplo, o relatório para reembolso do plano).</p>')}
+
+  ${sec('Cookies e serviços de terceiros', '<p>O site não usa cookies próprios nem ferramentas de publicidade ou de rastreamento. Para exibir as fontes e o mapa, o site carrega serviços do Google (Google Fonts e Google Maps), que podem registrar dados técnicos da visita, como o endereço IP, conforme a política de privacidade do próprio Google.</p>')}
+
+  ${sec('Seus direitos', '<p>Pela LGPD, você pode pedir a qualquer momento para confirmar se tratamos seus dados, acessar, corrigir ou excluir essas informações, ou revogar o consentimento. Basta falar com a gente pelo WhatsApp (61) 99590-1212 ou pelo e-mail <span class="js-email"></span>.</p>')}
+
+  ${sec('Atualizações', '<p>Esta política pode ser atualizada. Última atualização: novembro de 2026.</p>')}
+</main>
+` + corpoFinal();
+}
+
 const gerar = (slug, html) => {
   const dir = path.join(RAIZ, slug);
   fs.mkdirSync(dir, { recursive: true });
@@ -329,6 +367,7 @@ const gerar = (slug, html) => {
 };
 for (const p of paginas) gerar(p.slug, paginaTema(p));
 gerar('dra-fatima-della-corte', paginaMedica());
+gerar('privacidade', paginaPrivacidade());
 
 // sitemap
 const urls = [`${SITE}/`, ...paginas.map((p) => urlDe(p.slug)), urlDe('dra-fatima-della-corte')];

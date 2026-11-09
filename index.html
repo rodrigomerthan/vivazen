@@ -37,7 +37,8 @@
         "postalCode": "70390-145",
         "addressCountry": "BR"
       },
-      "areaServed": {"@type":"City","name":"Brasília"},
+      "areaServed": {"@type":"Place","name":"Asa Sul, Brasília/DF"},
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=SEP%2FSUL%20714%2F914%20Conjunto%20D%2C%20Asa%20Sul%2C%20Bras%C3%ADlia%20DF%2070390-145",
       "medicalSpecialty": [
         "Pediatric"
       ],
@@ -55,7 +56,6 @@
           "name": "Consulta de Pediatria"
         }
       ],
-      "isAcceptedPaymentMethod": "Atendimento particular (não aceita convênios)",
       "sameAs": [
         "https://www.google.com/search?kgmid=/g/11ltxfcdwn"
       ],
@@ -138,7 +138,7 @@
           "name": "A acupuntura é dolorosa?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A maioria dos pacientes sente apenas uma leve sensação de formigamento, calor ou peso no local de aplicação das agulhas. É sinal de que o ponto foi ativado corretamente. Muitos adormecem durante a sessão."
+            "text": "A maioria dos pacientes sente apenas uma leve sensação de formigamento, calor ou peso no local de aplicação das agulhas. Muitos relaxam durante a sessão."
           }
         },
         {
@@ -154,7 +154,7 @@
           "name": "Posso levar meu filho para ser atendido?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sim! A Dra. Fátima atende bebês, crianças e adolescentes em Pediatria, com olhar integrado e escuta atenta. As técnicas são adaptadas para cada faixa etária, sendo completamente seguras."
+            "text": "Sim. A Dra. Fátima é pediatra (RQE 2196) e atende bebês, crianças e adolescentes. As técnicas são adaptadas a cada idade, e a indicação de cada uma é avaliada por ela na consulta."
           }
         },
         {
@@ -257,6 +257,23 @@ nav a:hover { color: var(--sage); }
 .hero h1.hero-kicker { font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.5; }
 .hero .hero-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(2.8rem, 5vw, 4.8rem); font-weight: 300; color: #1a1a1a; line-height: 1.1; opacity: 0; animation: fadeUp 0.9s ease 0.4s forwards; }
 .hero .hero-title em { font-style: italic; color: var(--sage); }
+.hero h1.hero-title { font-size: clamp(2.3rem, 4.6vw, 4.2rem); }
+.hero-medica { display: flex; align-items: center; gap: 14px; margin-top: 1.8rem; font-size: 0.92rem; line-height: 1.5; color: var(--mid); opacity: 0; animation: fadeUp 0.9s ease 0.5s forwards; }
+.hero-medica img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; object-position: center top; flex-shrink: 0; }
+.hero-medica strong { display: block; font-weight: 500; color: var(--charcoal); font-size: 1rem; }
+.hero-foto { display: none; }
+@media (min-width: 1025px) {
+  .hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); }
+  .hero-left { padding: 6% 6% 6% 10%; }
+  .hero-foto { display: block; position: relative; overflow: hidden; }
+  .hero-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .hero-medica img { display: none; }
+}
+.contact-mapa { margin-top: 2rem; border: 1px solid var(--border); border-radius: 2px; overflow: hidden; }
+.contact-mapa iframe { display: block; width: 100%; height: 280px; border: 0; }
+.contact-rota { display: inline-block; margin-top: 12px; font-size: 0.85rem; color: var(--sage); text-underline-offset: 4px; }
+.form-disclaimer a { color: inherit; }
+.footer-bottom a { color: inherit; }
 
 .hero-sub { margin-top: 1.8rem; font-size: 1.05rem; line-height: 1.75; color: var(--mid); max-width: 620px; font-weight: 300; opacity: 0; animation: fadeUp 0.9s ease 0.6s forwards; }
 
@@ -426,11 +443,14 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
   </div>
 </header>
 
-<section class="hero" id="hero" style="padding: 0; min-height: 100vh;">
+<section class="hero" id="hero" style="padding: 72px 0 0; min-height: 100vh;">
   <div class="hero-left">
-    <h1 class="hero-kicker">Pediatria, Acupuntura e Homeopatia na Asa Sul</h1>
-    <p class="hero-title">Saúde que cuida<br>do ser <em>inteiro.</em></p>
-    <p class="hero-sub">Atendimento médico adulto e infantil com um olhar ampliado sobre o processo de saúde e doença, apoiado na tradição da medicina chinesa e na Escola Hahnemanniana de Homeopatia. Um cuidado que respeita a individualidade de cada paciente e busca, acima de tudo, promover a saúde de forma integral.</p>
+    <h1 class="hero-title">Pediatria, acupuntura e homeopatia na <em>Asa&nbsp;Sul</em></h1>
+    <div class="hero-medica">
+      <img src="img/dra-fatima-della-corte.jpg" alt="" width="56" height="56">
+      <span><strong>Dra. Maria de Fátima Della Côrte</strong>CRM-DF 9170 · Pediatra, homeopata e acupunturista</span>
+    </div>
+    <p class="hero-sub">Atendimento médico para adultos e crianças em Brasília, com consulta detalhada e atenção à história de cada paciente, apoiado na medicina chinesa e na Escola Hahnemanniana de Homeopatia.</p>
     <div class="hero-actions">
       <a href="https://wa.me/5561995901212" target="_blank" class="btn-primary">✦ Agendar Consulta</a>
       <a href="#servicos" onclick="goTo('servicos');return false;" class="btn-secondary">Conhecer as Especialidades</a>
@@ -441,7 +461,10 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
       <div><div class="stat-num serif">CRM<br><small style="font-size:1.4rem">9170</small></div><div class="stat-label">Registro Ativo DF</div></div>
     </div>
   </div>
-  </section>
+  <div class="hero-foto">
+    <img src="img/dra-fatima-della-corte.jpg" width="1024" height="1536" alt="Dra. Maria de Fátima Della Côrte">
+  </div>
+</section>
 
 <section class="about" id="sobre">
   <div class="about-photo-wrap reveal">
@@ -449,20 +472,20 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
       <img src="img/dra-fatima-della-corte.jpg" width="1024" height="1536" alt="Dra. Maria de Fátima Della Côrte" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
     </div>
     <div class="frame-accent"></div>
-    <div class="crmdf-badge">CRMDF 9170</div>
+    <div class="crmdf-badge">CRM-DF 9170</div>
   </div>
   <div class="about-content reveal">
     <span class="section-kicker">Sobre a Médica</span>
-    <h2 class="section-title">Dra. M.ª de Fátima<br><em>Della Côrte</em></h2>
+    <h2 class="section-title">Dra. Maria de Fátima<br><em>Della Côrte</em></h2>
     <p class="about-lead">"Cada paciente é único em sua forma de adoecer e de se restabelecer. Tratar o indivíduo em sua totalidade faz toda a diferença num processo real e sustentável de promoção de saúde."</p>
     <p class="about-text">Com mais de 35 anos de atuação na medicina, a Dra. Maria de Fátima Della Côrte dedica-se ao cuidado médico que integra pediatria, homeopatia e acupuntura. Médica homeopata, Responsável Técnica Distrital de Homeopatia na Secretaria de Saúde do DF.</p>
     <p class="about-text">Sua abordagem une precisão diagnóstica e escuta aprofundada. Cada paciente é compreendido em sua totalidade física, emocional e funcional, com atenção à sua história, singularidades e forma própria de adoecer.</p>
     <p class="about-text">O cuidado é orientado por uma visão ampliada do processo saúde-doença, apoiado na tradição da medicina chinesa e na Escola Hahnemanniana da homeopatia.</p>
     <div class="credentials">
-      <div class="credential-item"><div class="credential-dot"></div><span>Médica pela Universidade Federal de Goiás, formada em 1990 · CRMDF 9170</span></div>
+      <div class="credential-item"><div class="credential-dot"></div><span>Médica pela Universidade Federal de Goiás, formada em 1990 · CRM-DF 9170</span></div>
       <div class="credential-item"><div class="credential-dot"></div><span>Residência em Pediatria no Hospital Geral de Goiânia (HGG) · RQE 2196</span></div>
-      <div class="credential-item"><div class="credential-dot"></div><span>Pós-Graduação em Acupuntura · RQE 20577</span></div>
-      <div class="credential-item"><div class="credential-dot"></div><span>Pós-Graduação em Homeopatia · RQE 7565</span></div>
+      <div class="credential-item"><div class="credential-dot"></div><span>Especialista em Acupuntura · RQE 20577</span></div>
+      <div class="credential-item"><div class="credential-dot"></div><span>Especialista em Homeopatia · RQE 7565</span></div>
       <div class="credential-item"><div class="credential-dot"></div><span>Pós-Graduação em Medicina Integrativa</span></div>
       <div class="credential-item"><div class="credential-dot"></div><span>Responsável Técnica Distrital de Homeopatia na Secretaria de Saúde do DF</span></div>
       <div class="credential-item"><div class="credential-dot"></div><span>Integrante da Câmara Técnica de Homeopatia do Conselho Federal de Medicina (CFM)</span></div>
@@ -479,7 +502,7 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
   <div class="services-grid">
     <div class="service-card reveal">
       <h3>Acupuntura<br>Médica</h3>
-      <p>Técnica milenar da Medicina Chinesa que age sobre pontos específicos do corpo para restaurar o equilíbrio dinâmico, aliviar dores e promover saúde de forma natural.</p>
+      <p>Técnica da Medicina Chinesa que estimula pontos específicos do corpo com agulhas finas. Pode ser indicada, conforme avaliação médica, no cuidado de dores, ansiedade, insônia e outras condições.</p>
       <ul>
         <li><a href="/acupuntura-dor-cronica/">Dores crônicas e agudas</a></li>
         <li><a href="/acupuntura-ansiedade-insonia/">Ansiedade e insônia</a></li>
@@ -504,13 +527,11 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
     </div>
     <div class="service-card reveal">
       <h3>Homeopatia</h3>
-      <p>Tratamento individualizado, que considera o paciente como um todo e busca estimular a capacidade de reequilíbrio do próprio organismo. Indicado para condições agudas e crônicas em todas as idades.</p>
+      <p>Tratamento individualizado, que considera o paciente como um todo. Pode ser indicada para adultos e crianças, conforme avaliação, junto com o acompanhamento médico de cada caso.</p>
       <ul>
         <li><a href="/pediatra-homeopata-brasilia/">Homeopatia infantil</a></li>
         <li><a href="/homeopatia-alergia-rinite-infantil/">Alergias e rinites crônicas</a></li>
         <li>Asma e doenças respiratórias</li>
-        <li>Doenças autoimunes</li>
-        <li>Ansiedade e depressão</li>
         <li>Enxaqueca</li>
         <li>Doenças de pele</li>
       </ul>
@@ -525,7 +546,7 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
       Nossa Abordagem
     </span>
     <h2>Na Viva Zen, você é tratado<br><em>na sua totalidade.</em></h2>
-    <p>O paciente não é um diagnóstico. É uma história, um estilo de vida, uma forma singular de adoecer e de se restabelecer. Olhamos para a origem, não apenas para o sintoma, buscando o reequilíbrio do organismo.</p>
+    <p>O paciente não é um diagnóstico. É uma história, um estilo de vida, uma forma singular de adoecer e de se restabelecer. Por isso a consulta considera a história, os hábitos e o contexto de cada paciente, e não apenas o sintoma.</p>
     <a href="/medicina-integrativa-brasilia/" class="benefits-more">Saiba mais sobre medicina integrativa</a>
     <a href="https://wa.me/5561995901212" target="_blank" class="btn-primary" style="margin-top:2.5rem; display:inline-flex;">Agendar consulta</a>
   </div>
@@ -546,7 +567,7 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">A acupuntura é dolorosa?<span class="faq-toggle">+</span></button>
-        <div class="faq-a">A maioria dos pacientes sente apenas uma leve sensação de formigamento, calor ou peso no local de aplicação das agulhas. É sinal de que o ponto foi ativado corretamente. Muitos adormecem durante a sessão.</div>
+        <div class="faq-a">A maioria dos pacientes sente apenas uma leve sensação de formigamento, calor ou peso no local de aplicação das agulhas. Muitos relaxam durante a sessão.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">A homeopatia é reconhecida pela medicina?<span class="faq-toggle">+</span></button>
@@ -554,7 +575,7 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Posso levar meu filho para ser atendido?<span class="faq-toggle">+</span></button>
-        <div class="faq-a">Sim! A Dra. Fátima atende bebês, crianças e adolescentes em Pediatria, com olhar integrado e escuta atenta. As técnicas são adaptadas para cada faixa etária, sendo completamente seguras.</div>
+        <div class="faq-a">Sim. A Dra. Fátima é pediatra (RQE 2196) e atende bebês, crianças e adolescentes. As técnicas são adaptadas a cada idade, e a indicação de cada uma é avaliada por ela na consulta.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">O consultório atende por convênio?<span class="faq-toggle">+</span></button>
@@ -575,9 +596,9 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
 <section class="cta-section">
   <div class="cta-inner reveal">
     <span class="section-kicker">Viva Zen Centro Médico Integrado</span>
-    <h2>Cuide da sua saúde com<br>quem realmente <em>entende.</em></h2>
+    <h2>Agende sua consulta<br>na <em>Asa Sul.</em></h2>
     <p style="margin-top:1.2rem; font-size:0.85rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.6);">Atendimento médico adulto e infantil</p>
-    <p>Marque a sua consulta e dê início a uma jornada de cuidado e transformação. A Dra. Fátima oferece uma escuta ampliada, atenta e sensível.</p>
+    <p>O agendamento é feito pelo WhatsApp. Por lá você consulta valores, horários disponíveis e como pedir reembolso ao seu plano.</p>
     <div class="cta-buttons">
       <a href="https://wa.me/5561995901212" target="_blank" class="btn-gold">Agendar pelo WhatsApp</a>
     </div>
@@ -610,7 +631,17 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
             <span>SEP/SUL QD 714/914, Conjunto D, Sala 232<br>Asa Sul · Brasília/DF, 70390-145</span>
           </div>
         </div>
+        <div class="contact-row">
+          <div class="contact-row-text">
+            <label>Horários</label>
+            <span>Com hora marcada. Consulte os horários disponíveis pelo WhatsApp.</span>
+          </div>
+        </div>
       </div>
+      <div class="contact-mapa">
+        <iframe src="https://www.google.com/maps?q=SEP%2FSUL%20714%2F914%20Conjunto%20D%2C%20Asa%20Sul%2C%20Bras%C3%ADlia%20DF%2070390-145&amp;output=embed" title="Mapa do consultório Viva Zen na Asa Sul" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <a class="contact-rota" href="https://www.google.com/maps/dir/?api=1&amp;destination=SEP%2FSUL%20714%2F914%20Conjunto%20D%2C%20Asa%20Sul%2C%20Bras%C3%ADlia%20DF%2070390-145" target="_blank" rel="noopener">Como chegar pelo Google Maps</a>
     </div>
     <div class="contact-form reveal">
       <div class="form-title">Agende sua consulta</div>
@@ -643,7 +674,7 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
         <textarea placeholder="Descreva o que está sentindo ou o que você busca..."></textarea>
       </div>
       <button class="btn-submit" onclick="submitForm()">Solicitar Agendamento</button>
-      <p class="form-disclaimer">Ao enviar, você será redirecionado ao WhatsApp para confirmação.<br>Seus dados são tratados com total confidencialidade.</p>
+      <p class="form-disclaimer">Ao enviar, você será redirecionado ao WhatsApp para confirmação.<br>Seus dados são usados só para o agendamento. Veja a <a href="/privacidade/">Política de privacidade</a>.</p>
     </div>
   </div>
 </section>
@@ -681,11 +712,12 @@ footer { background: #1E2220; color: rgba(255,255,255,0.6); padding: 60px 5% 32p
         <li><span class="js-email"></span></li>
         <li><span>SEP/SUL QD 714/914, Sala 232</span></li>
         <li><span>Asa Sul · Brasília/DF</span></li>
+        <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=SEP%2FSUL%20714%2F914%20Conjunto%20D%2C%20Asa%20Sul%2C%20Bras%C3%ADlia%20DF%2070390-145" target="_blank" rel="noopener">Como chegar</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Viva Zen Centro Médico Integrado · Dra. Mª de Fátima Della Côrte · CRMDF 9170</span>
+    <span>© 2026 Viva Zen Centro Médico Integrado · Dra. Maria de Fátima Della Côrte · CRM-DF 9170 · <a href="/privacidade/">Política de privacidade (LGPD)</a></span>
     <span>Brasília/DF · <span class="js-email"></span></span>
   </div>
 </footer>
