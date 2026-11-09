@@ -8,6 +8,9 @@ const RAIZ = path.join(__dirname, '..');
 const SITE = 'https://clinicavivazen.com.br';
 const HOJE = new Date().toISOString().slice(0, 10);
 const WHATS = 'https://wa.me/5561995901212';
+const whatsCom = (assunto) => WHATS + '?text=' + encodeURIComponent(`Olá! Vim pelo site e gostaria de agendar uma consulta${assunto ? ' (' + assunto + ')' : ''}.`);
+const WEBSITE = { '@type': 'WebSite', '@id': 'https://clinicavivazen.com.br/#website', url: 'https://clinicavivazen.com.br/', name: 'Viva Zen Centro Médico Integrado', inLanguage: 'pt-BR', publisher: { '@id': 'https://clinicavivazen.com.br/#clinica' } };
+const FOTO_96 = '/img/dra-fatima-della-corte-96.webp';
 const FOTO = '/img/dra-fatima-della-corte.jpg';
 const PERFIL_GOOGLE = 'https://www.google.com/search?kgmid=/g/11ltxfcdwn';
 
@@ -17,7 +20,7 @@ const home = fs.readFileSync(path.join(RAIZ, 'index.html'), 'utf8').replace(/\r\
 const pega = (re) => { const m = home.match(re); if (!m) throw new Error('não achei ' + re); return m[0]; };
 const css = pega(/<style>[\s\S]*?<\/style>/).replace(/^<style>|<\/style>$/g, '');
 const fontes = pega(/<link rel="preconnect"[\s\S]*?rel="stylesheet">/);
-const csp = pega(/<meta http-equiv="Content-Security-Policy"[^>]*>/);
+const icones = pega(/<link rel="icon"[^>]*>\n<link rel="apple-touch-icon"[^>]*>/);
 // links da home viram links para a home (/#secao), sem o scroll via JS
 const absoluto = (html) => html
   .replace(/href="#(\w+)" onclick="goTo\('\w+'\);return false;"/g, 'href="/#$1"')
@@ -25,7 +28,7 @@ const absoluto = (html) => html
 const cabecalho = absoluto(pega(/<header id="header">[\s\S]*?<\/header>/))
   .replace('<span class="logo-name serif">Viva Zen</span>', '<a href="/" class="logo-link"><span class="logo-name serif">Viva Zen</span></a>');
 const rodape = absoluto(pega(/<footer>[\s\S]*?<\/footer>/));
-const whatsFlutuante = pega(/<a href="https:\/\/wa\.me\/5561995901212" target="_blank" class="whatsapp-float"[\s\S]*?<\/a>/);
+const whatsFlutuante = pega(/<a href="https:\/\/wa\.me\/5561995901212[^"]*" target="_blank" rel="noopener" class="whatsapp-float"[\s\S]*?<\/a>/);
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const semTags = (s) => s.replace(/<[^>]+>/g, '');
@@ -87,19 +90,21 @@ function cabeca(p, url, schema) {
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-${csp}
+${icones}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${p.title}</title>
 <meta name="description" content="${esc(p.desc)}">
 <link rel="canonical" href="${url}">
-<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="robots" content="${p.robots || 'index, follow, max-image-preview:large'}">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Viva Zen Centro Médico Integrado">
 <meta property="og:url" content="${url}">
 <meta property="og:title" content="${esc(p.title)}">
 <meta property="og:description" content="${esc(p.desc)}">
-<meta property="og:image" content="${SITE}${FOTO}">
+<meta property="og:image" content="${SITE}/img/og-vivazen.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 ${fontes}
 <style>${css}${CSS_TEMA}</style>
@@ -132,7 +137,9 @@ function fillEmails() {
 }
 function toggleNav() {
   var nav = document.getElementById('nav');
-  nav.classList.contains('open') ? nav.classList.remove('open') : nav.classList.add('open');
+  var aberto = nav.classList.toggle('open');
+  var b = document.getElementById('hamburger');
+  if (b) b.setAttribute('aria-expanded', aberto ? 'true' : 'false');
 }
 window.onload = fillEmails;
 </script>
@@ -154,7 +161,7 @@ function migalhas(p) {
   const html = itens.map(([n, h], i) => (h ? `<a href="${h}">${n}</a>` : `<span aria-current="page">${n}</span>`) + (i < itens.length - 1 ? ' <span aria-hidden="true">›</span>' : '')).join(' ');
   const schema = {
     '@type': 'BreadcrumbList',
-    itemListElement: itens.map(([n, h], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: h ? SITE + h.replace(/#\w+$/, '') : urlDe(p.slug) })),
+    itemListElement: itens.filter(([, h]) => !h || !h.includes('#')).map(([n, h], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: h ? SITE + h : urlDe(p.slug) })),
   };
   return { html: `<div class="tp-crumbs" role="navigation" aria-label="Você está em">${html}</div>`, schema };
 }
@@ -171,7 +178,7 @@ const faqSchema = (faq) => ({
 });
 
 const AUTORA = `<aside class="tp-autora">
-    <img src="${FOTO}" alt="Dra. Maria de Fátima Della Côrte" width="88" height="88" loading="lazy">
+    <img src="${FOTO_96}" alt="Dra. Maria de Fátima Della Côrte" width="88" height="88" loading="lazy">
     <div>
       <strong>Dra. Maria de Fátima Della Côrte</strong>
       <p>Médica pela Universidade Federal de Goiás, com residência em Pediatria (RQE 2196) e pós-graduação em Acupuntura (RQE 20577) e Homeopatia (RQE 7565). Responsável Técnica Distrital de Homeopatia na Secretaria de Saúde do DF e integrante da Câmara Técnica de Homeopatia do CFM. CRM-DF 9170.</p>
@@ -202,13 +209,14 @@ function paginaTema(p) {
         about: { '@type': 'MedicalCondition', name: p.sobre },
         author: { '@id': MEDICA['@id'] },
         lastReviewed: HOJE,
-        isPartOf: { '@type': 'WebSite', url: `${SITE}/`, name: 'Viva Zen Centro Médico Integrado' },
+        isPartOf: { '@id': WEBSITE['@id'] },
         publisher: { '@id': CLINICA['@id'] },
         breadcrumb: m.schema,
       },
       faqSchema(p.faq),
       MEDICA,
       CLINICA,
+      WEBSITE,
     ],
   };
   // especialidade não é condição: troca o tipo do "about"
@@ -222,8 +230,8 @@ function paginaTema(p) {
     <span class="tp-kicker">${p.kicker}</span>
     <h1>${p.h1}</h1>
     <p class="tp-resposta">${p.resposta}</p>
-    <div class="tp-resp"><img src="${FOTO}" alt="" width="36" height="36">Responsável técnica: Dra. Maria de Fátima Della Côrte · CRM-DF 9170</div>
-    <a href="${WHATS}" target="_blank" class="btn-primary">Agendar avaliação pelo WhatsApp</a>
+    <div class="tp-resp"><img src="${FOTO_96}" alt="" width="36" height="36">Responsável técnica: Dra. Maria de Fátima Della Côrte · CRM-DF 9170</div>
+    <a href="${whatsCom(p.nome)}" target="_blank" rel="noopener" class="btn-primary">Agendar avaliação pelo WhatsApp</a>
   </section>
 
   ${p.secoes.map(([h, html]) => `<section class="tp-secao">
@@ -244,7 +252,7 @@ function paginaMedica() {
   const p = {
     slug: 'dra-fatima-della-corte',
     nome: 'Dra. Maria de Fátima Della Côrte',
-    title: 'Dra. Maria de Fátima Della Côrte · Pediatra, homeopata e acupunturista em Brasília',
+    title: 'Dra. Fátima Della Côrte, pediatra e homeopata | Viva Zen',
     desc: 'Dra. Maria de Fátima Della Côrte (CRM-DF 9170): pediatra, homeopata e acupunturista com mais de 35 anos de atuação. Atende na Viva Zen, Asa Sul, Brasília.',
   };
   const faq = [
@@ -286,8 +294,8 @@ function paginaMedica() {
     <span class="tp-kicker">Pediatria · Homeopatia · Acupuntura</span>
     <h1>Dra. Maria de Fátima <em>Della Côrte</em></h1>
     <p class="tp-resposta">Médica formada pela Universidade Federal de Goiás em 1990, pediatra, homeopata e acupunturista, com mais de 35 anos de atuação. Atende na Viva Zen Centro Médico Integrado, na Asa Sul, em Brasília. CRM-DF 9170.</p>
-    <img class="tp-foto" src="${FOTO}" alt="Dra. Maria de Fátima Della Côrte" width="1024" height="1536">
-    <a href="${WHATS}" target="_blank" class="btn-primary">Agendar consulta pelo WhatsApp</a>
+    <img class="tp-foto" src="/img/dra-fatima-della-corte-800.webp" srcset="/img/dra-fatima-della-corte-400.webp 400w, /img/dra-fatima-della-corte-800.webp 800w" sizes="(max-width: 400px) 100vw, 360px" alt="Dra. Maria de Fátima Della Côrte" width="800" height="1200" fetchpriority="high">
+    <a href="${whatsCom('')}" target="_blank" rel="noopener" class="btn-primary">Agendar consulta pelo WhatsApp</a>
   </section>
 
   <section class="tp-secao">
@@ -360,6 +368,25 @@ function paginaPrivacidade() {
 ` + corpoFinal();
 }
 
+function pagina404() {
+  const p = { title: 'Página não encontrada | Viva Zen', desc: 'Esta página não existe. Veja as especialidades da Viva Zen Centro Médico Integrado, na Asa Sul, Brasília.', robots: 'noindex, follow' };
+  const schema = { '@context': 'https://schema.org', '@graph': [WEBSITE] };
+  const links = ['pediatra-asa-sul', 'pediatra-homeopata-brasilia', 'acupuntura-brasilia', 'homeopatia-brasilia', 'medicina-integrativa-brasilia', 'dra-fatima-della-corte'];
+  return cabeca(p, `${SITE}/404.html`, schema).replace(/<link rel="canonical"[^>]*>\n/, '') + `
+<main class="tp">
+  <section class="tp-hero">
+    <h1>Página <em>não encontrada</em></h1>
+    <p class="tp-resposta">O endereço que você abriu não existe ou mudou. Veja abaixo as páginas do consultório ou fale com a gente pelo WhatsApp (61) 99590-1212.</p>
+    <a href="${whatsCom('')}" target="_blank" rel="noopener" class="btn-primary">Falar pelo WhatsApp</a>
+  </section>
+  <section class="tp-secao">
+    <h2>Páginas do site</h2>
+    <div class="tp-rel"><a href="/">Página inicial</a>${links.map((s) => `<a href="/${s}/">${porSlug[s].nome}</a>`).join('')}</div>
+  </section>
+</main>
+` + corpoFinal();
+}
+
 const gerar = (slug, html) => {
   const dir = path.join(RAIZ, slug);
   fs.mkdirSync(dir, { recursive: true });
@@ -368,6 +395,7 @@ const gerar = (slug, html) => {
 for (const p of paginas) gerar(p.slug, paginaTema(p));
 gerar('dra-fatima-della-corte', paginaMedica());
 gerar('privacidade', paginaPrivacidade());
+fs.writeFileSync(path.join(RAIZ, '404.html'), pagina404());
 
 // sitemap
 const urls = [`${SITE}/`, ...paginas.map((p) => urlDe(p.slug)), urlDe('dra-fatima-della-corte')];
