@@ -20,7 +20,7 @@ const home = fs.readFileSync(path.join(RAIZ, 'index.html'), 'utf8').replace(/\r\
 const pega = (re) => { const m = home.match(re); if (!m) throw new Error('não achei ' + re); return m[0]; };
 const css = pega(/<style>[\s\S]*?<\/style>/).replace(/^<style>|<\/style>$/g, '');
 const fontes = pega(/<link rel="preconnect"[\s\S]*?rel="stylesheet">/);
-const icones = pega(/<link rel="icon"[^>]*>\n<link rel="apple-touch-icon"[^>]*>/);
+const icones = pega(/(?:<link rel="icon"[^>]*>\n)+<link rel="apple-touch-icon"[^>]*>/);
 // links da home viram links para a home (/#secao), sem o scroll via JS
 const absoluto = (html) => html
   .replace(/href="#(\w+)" onclick="goTo\('\w+'\);return false;"/g, 'href="/#$1"')
